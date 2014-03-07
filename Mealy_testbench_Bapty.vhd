@@ -90,7 +90,7 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-      wait for 100 ns;	 
+      wait for 100 ns;	
 		stop<='1';
       wait for 2*clk_period;	
 		up_down <= '1'; 
@@ -107,20 +107,21 @@ BEGIN
 		stop<='1';
 		wait for clk_period*2;
 		up_down<='0';
-		wait for clk_period;
-		stop<='1';
-		wait for 2*clk_period;
+		
+				--		wait for clk_period;
+--		stop<='1';
+--		wait for 2*clk_period;
+--		stop<='0';
+--		wait for clk_period;
+--		stop<='1';
+--		wait for 2*clk_period;
+--		stop<='0';
+--		wait for clk_period;		
+		--wait for clk_period*2;
+--		up_down <= '1'; 
+--		stop <= '1';
+--		wait for clk_period*2;
 		stop<='0';
-		wait for clk_period;
-		stop<='1';
-		wait for 2*clk_period;
-		stop<='0';
-		wait for clk_period;		
-		wait for clk_period*2;
-		up_down <= '1'; 
-		stop <= '1';
-		wait for clk_period*2;
-stop<='0';
 
 
       -- insert stimulus here 
