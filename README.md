@@ -23,10 +23,12 @@ A: 20 ns
 
 #### Moore VHDL Shell
 Q: Is reset synchronous or asynchronous?
+
 A: synchronous
 
 #### Mealy VHDL Shell
 Q: Will it be different from your Moore Machine?
+
 A: While similar, the Mealy is different from the Moore in that it includes nextfloor output based on the current floor and inputs.
 
 
