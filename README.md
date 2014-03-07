@@ -12,6 +12,16 @@ The output of the Moore elevator controller was manually checked. By looking at 
 
 The output of the Mealy elevator controller was manually checked. By looking at the VHDL generated output it can be seen that the "floor" output is the same as the Moore elevator contoller. Additionally, the nextfloor output correctly denotes the value of floor whenever it is allowed to proceed. One thing to note is that at the top floor when up_down is set to go up means that both floor and nextfloor should and does output the fourth floor value.
 
+### Q/A
+
+#### CE_3 Instructions
+Q: What is the clock frequency?
+A: 100 MHz
+
+Q: What value would we set to simulate a 50MHz clock?
+A: 20 ns
+
+
 #### Documentation
 I referenced Captain Silva's VHDL code for the stoplight when determining how to coordinate operations with the clock. Additionally, C3C Eichman and I talked about the differences between Moore and Mealy and that the Mealy needs a next state output which can be determined by the input up_down.
 
