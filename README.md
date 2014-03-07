@@ -8,4 +8,7 @@ The output of the Moore elevator controller was manually checked. By looking at 
 
 ### Mealy
 
-![alt tag](https://raw.github.com/seanbapty/CE3_Bapty/master/mealy%20testbench%20out.JPG)
+![alt tag](https://raw.github.com/seanbapty/CE3_Bapty/master/mealy_upDownWithoutStop.JPG)
+
+The output of the Mealy elevator controller was manually checked. By looking at the VHDL generated output it can be seen that the "floor" output is the same as the Moore elevator contoller. Additionally, the nextfloor output correctly denotes the value of floor whenever it is allowed to proceed. One thing to note is that at the top floor when up_down is set to go up means that both floor and nextfloor should and does output the fourth floor value.
+
