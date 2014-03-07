@@ -16,9 +16,11 @@ The output of the Mealy elevator controller was manually checked. By looking at 
 
 #### CE_3 Instructions
 Q: What is the clock frequency?
+
 A: 100 MHz
 
 Q: What value would we set to simulate a 50MHz clock?
+
 A: 20 ns
 
 #### Moore VHDL Shell
