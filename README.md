@@ -21,6 +21,14 @@ A: 100 MHz
 Q: What value would we set to simulate a 50MHz clock?
 A: 20 ns
 
+#### Moore VHDL Shell
+Q: Is reset synchronous or asynchronous?
+A: synchronous
+
+#### Mealy VHDL Shell
+Q: Will it be different from your Moore Machine?
+A: While similar, the Mealy is different from the Moore in that it includes nextfloor output based on the current floor and inputs.
+
 
 #### Documentation
 I referenced Captain Silva's VHDL code for the stoplight when determining how to coordinate operations with the clock. Additionally, C3C Eichman and I talked about the differences between Moore and Mealy and that the Mealy needs a next state output which can be determined by the input up_down.
