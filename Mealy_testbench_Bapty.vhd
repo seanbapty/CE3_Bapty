@@ -1,16 +1,16 @@
 --------------------------------------------------------------------------------
--- Company: SCIENCE INC.
--- Engineer: Sean Bapty
+-- Company: 
+-- Engineer:
 --
--- Create Date:   07:44:20 03/04/2014
+-- Create Date:   18:51:29 03/06/2014
 -- Design Name:   
--- Module Name:   C:/Users/C16Sean.Bapty/Documents/Academics 1.0/Spring 2014/ECE 281/CE3_Bapty/Moore_testbench_Bapty.vhd
+-- Module Name:   C:/Users/C16Sean.Bapty/Documents/Academics 1.0/Spring 2014/ECE 281/CE3_Bapty/Mealy_testbench_Bapty.vhd
 -- Project Name:  CE3_Bapty
 -- Target Device:  
 -- Tool versions:  
 -- Description:   
 -- 
--- VHDL Test Bench Created by ISE for module: MooreElevatorController_Shell
+-- VHDL Test Bench Created by ISE for module: MealyElevatorController_Shell
 -- 
 -- Dependencies:
 -- 
@@ -32,20 +32,21 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY Moore_testbench_Bapty IS
-END Moore_testbench_Bapty;
+ENTITY Mealy_testbench_Bapty IS
+END Mealy_testbench_Bapty;
  
-ARCHITECTURE behavior OF Moore_testbench_Bapty IS 
+ARCHITECTURE behavior OF Mealy_testbench_Bapty IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT MooreElevatorController_Shell
+    COMPONENT MealyElevatorController_Shell
     PORT(
          clk : IN  std_logic;
          reset : IN  std_logic;
          stop : IN  std_logic;
          up_down : IN  std_logic;
-         floor : OUT  std_logic_vector(3 downto 0)
+         floor : OUT  std_logic_vector(3 downto 0);
+         nextfloor : OUT  std_logic_vector(3 downto 0)
         );
     END COMPONENT;
     
@@ -58,6 +59,7 @@ ARCHITECTURE behavior OF Moore_testbench_Bapty IS
 
  	--Outputs
    signal floor : std_logic_vector(3 downto 0);
+   signal nextfloor : std_logic_vector(3 downto 0);
 
    -- Clock period definitions
    constant clk_period : time := 20 ns;
@@ -65,12 +67,13 @@ ARCHITECTURE behavior OF Moore_testbench_Bapty IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: MooreElevatorController_Shell PORT MAP (
+   uut: MealyElevatorController_Shell PORT MAP (
           clk => clk,
           reset => reset,
           stop => stop,
           up_down => up_down,
-          floor => floor
+          floor => floor,
+          nextfloor => nextfloor
         );
 
    -- Clock process definitions
@@ -86,7 +89,8 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-		wait for 100 ns;
+      -- hold reset state for 100 ns.
+      wait for 100 ns;	 
 		stop<='1';
       wait for 2*clk_period;	
 		up_down <= '1'; 
@@ -103,20 +107,22 @@ BEGIN
 		stop<='1';
 		wait for clk_period*2;
 		up_down<='0';
+		wait for clk_period;
+		stop<='1';
+		wait for 2*clk_period;
 		stop<='0';
---		wait for clk_period;
---		stop<='1';
---		wait for 2*clk_period;
---		stop<='0';
---		wait for clk_period;
---		stop<='1';
---		wait for 2*clk_period;
---		stop<='0';
---		wait for clk_period;		
-		--wait for clk_period*2;
---		up_down <= '1'; 
---		stop <= '1';
---		wait for clk_period*2;
+		wait for clk_period;
+		stop<='1';
+		wait for 2*clk_period;
+		stop<='0';
+		wait for clk_period;		
+		wait for clk_period*2;
+		up_down <= '1'; 
+		stop <= '1';
+		wait for clk_period*2;
+stop<='0';
+
+
       -- insert stimulus here 
 
       wait;
