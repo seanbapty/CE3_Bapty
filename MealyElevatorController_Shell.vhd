@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: USAFA/DFEC
--- Engineer: Silva
+-- Engineer: Silva and Bapty
 -- 
 -- Create Date:    10:33:47 07/07/2012 
 -- Design Name: 
